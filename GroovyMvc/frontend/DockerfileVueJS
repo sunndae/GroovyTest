@@ -19,8 +19,8 @@ RUN npm run build
 # Instalar servidor HTTP para servir la aplicación construida
 RUN npm install -g http-server
 
-# Exponer el puerto
-EXPOSE 8082
+# Exponer el puerto estándar para el servidor HTTP
+EXPOSE 8080
 
 # Ejecutar servidor HTTP
 CMD ["http-server", "dist"]
