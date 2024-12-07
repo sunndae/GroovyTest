@@ -16,11 +16,12 @@ COPY . .
 # Construir la aplicación
 RUN npm run build
 
-# Servidor HTTP para la aplicación construida
-RUN npm install -g serve
+# Instalar servidor HTTP para servir la aplicación construida
+RUN npm install -g http-server
 
 # Exponer el puerto estándar
 EXPOSE 8080
 
-# Ejecutar la aplicación
-CMD ["serve", "-s", "dist", "-l", "8080"]
+# Ejecutar servidor HTTP
+CMD ["http-server", "dist", "-p", "8080"]
+
