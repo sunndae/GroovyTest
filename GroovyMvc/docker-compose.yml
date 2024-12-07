@@ -55,7 +55,6 @@ services:
       - "8082:8080"  # Puerto 8082 para la aplicación Vue.js
     volumes:
       - ./frontend:/app
-      - /app/node_modules
     depends_on:
       - grails-app
     networks:
