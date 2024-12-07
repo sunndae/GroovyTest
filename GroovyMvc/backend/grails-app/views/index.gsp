@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>Welcome to Grails</title>
+    <title>Hola mundo!</title>
 </head>
 <body>
 <content tag="nav">
@@ -10,6 +10,7 @@
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status <span class="caret"></span></a>
         <ul class="dropdown-menu">
             <li class="dropdown-item"><a href="#">Environment: ${grails.util.Environment.current.name}</a></li>
+            <li class="dropdown-item"><a href="#">App profile: ${grailsApplication.config.grails?.profile}</a></li>
             <li class="dropdown-item"><a href="#">App version:
                 <g:meta name="info.app.version"/></a>
             </li>
@@ -51,7 +52,7 @@
 <div id="content" role="main">
     <div class="container">
         <section class="row colset-2-its">
-            <h1>Welcome to Grails</h1>
+            <h1>Hola mundo!</h1>
 
             <p>
                 Congratulations, you have successfully started your first Grails application! At the moment
