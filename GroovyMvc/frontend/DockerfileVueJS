@@ -1,10 +1,10 @@
 # Imagen base con Node.js
-FROM node:14
+FROM node:16
 
 # Directorio de trabajo
 WORKDIR /app
 
-# Copiar package.json y package-lock.json
+# Copiar dependencias antes de copiar el código para aprovechar el caché
 COPY package*.json ./
 
 # Instalar dependencias
@@ -16,11 +16,11 @@ COPY . .
 # Construir la aplicación
 RUN npm run build
 
-# Instalar servidor HTTP para servir la aplicación construida
-RUN npm install -g http-server
+# Servidor HTTP para la aplicación construida
+RUN npm install -g serve
 
-# Exponer el puerto estándar para el servidor HTTP
+# Exponer el puerto estándar
 EXPOSE 8080
 
-# Ejecutar servidor HTTP
-CMD ["http-server", "dist"]
+# Ejecutar la aplicación
+CMD ["serve", "-s", "dist", "-l", "8080"]

@@ -1,0 +1,22 @@
+FROM openjdk:17-jdk-slim
+
+WORKDIR /app
+
+# Copiar gradlew y configuraciones de Gradle
+COPY gradlew gradle* /app/
+COPY gradle /app/gradle
+COPY build.gradle settings.gradle gradle.properties /app/
+
+# Ejecutar el resolve de dependencias
+RUN chmod +x ./gradlew && ./gradlew dependencies --no-daemon
+
+# Aquí se copia el código fuente, incluyendo grails-app y src
+COPY grails-app /app/grails-app
+COPY src /app/src
+
+# Ahora sí, compilar la aplicación
+RUN ./gradlew assemble --no-daemon
+
+EXPOSE 8080
+
+CMD ["./gradlew", "bootRun", "--no-daemon"]
