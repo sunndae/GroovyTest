@@ -17,6 +17,8 @@ grails:
         scriptlet: html
         taglib: none
         staticparts: none
+  server:
+    port: 8081
   mime:
     disable:
       accept:
