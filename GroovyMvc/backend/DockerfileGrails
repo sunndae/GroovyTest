@@ -2,15 +2,25 @@ FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
+# Instalar herramientas necesarias (curl, bash)
+RUN apt-get update && apt-get install -y \
+    curl \
+    bash \
+    netcat \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copiar gradlew y configuraciones de Gradle
 COPY gradlew gradle* /app/
 COPY gradle /app/gradle
 COPY build.gradle settings.gradle gradle.properties /app/
 
-# Ejecutar el resolve de dependencias
-RUN chmod +x ./gradlew && ./gradlew dependencies --no-daemon
+# Crear directorios necesarios para assets
+RUN mkdir -p /app/grails-app/assets
 
-# Aquí se copia el código fuente, incluyendo grails-app y src
+# Ejecutar el resolve de dependencias
+RUN chmod +x ./gradlew && ./gradlew build --no-daemon
+
+# Copiar el código fuente
 COPY grails-app /app/grails-app
 COPY src /app/src
 
@@ -19,4 +29,5 @@ RUN ./gradlew assemble --no-daemon
 
 EXPOSE 8080
 
-CMD ["./gradlew", "bootRun", "--no-daemon"]
+# Esperar a que la base de datos esté lista antes de ejecutar la aplicación
+CMD while ! nc -z db 5432; do sleep 1; done; ./gradlew bootRun --no-daemon

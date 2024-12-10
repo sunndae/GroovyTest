@@ -17,12 +17,21 @@ package com.backend
 class Persona {
 
     Integer id
-    string Nombre
-    string apellido
-    string carrera
+    String nombre
+    String apellido
+    String carrera
     Integer edad
     boolean titulado
-    static constraints = {
 
+    static constraints = {
+        nombre nullable: false, blank: false
+        apellido nullable: false, blank: false
+        carrera nullable: true
+        edad nullable: false, min: 18
+        titulado nullable: false
+    }
+
+    static mapping = {
+        table 'persona' // Esto asegura que la tabla se llame 'persona' en la base de datos
     }
 }
