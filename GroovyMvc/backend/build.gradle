@@ -40,6 +40,8 @@ dependencies {
     implementation("org.grails.plugins:gsp")
     implementation("org.grails.plugins:hibernate5")
     implementation("org.grails.plugins:scaffolding")
+    implementation('org.postgresql:postgresql:42.5.0' )
+    runtimeOnly ('org.postgresql:postgresql')
     implementation("org.hibernate:hibernate-core:5.6.15.Final")
     implementation("org.springframework.boot:spring-boot-autoconfigure")
     implementation("org.springframework.boot:spring-boot-starter")
