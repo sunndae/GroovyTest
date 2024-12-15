@@ -15,14 +15,14 @@ package com.backend
 /* Como crear una clase desde el CMD: grails create-domain-class com.backend.NombreClase */
 class Alumno {
 
-    Integer id
     String name
     String lastName
     String department
     String degree
     Integer age
     Boolean graduate
-    
+    //Long version
+
     /* son los nombres de las columnas
        que van mapeados a la base de datos
        y con las reglas definidas       */
@@ -37,6 +37,7 @@ class Alumno {
 
     // el orm va a crear una tabla con este nombre
     static mapping = {
-        table: "Alumno"
+        table: "alumno"
+        version: false
     }
 }

@@ -7,6 +7,9 @@ class AlumnoService {
 
     def findById(Integer id){
         Alumno alumno = Alumno.get(id)
+        if(!alumno){
+            throw new RuntimeException("Alumno no encontrado")
+        }
         return alumno
     }
 
@@ -20,8 +23,13 @@ class AlumnoService {
     List<Alumno> alumnos = Alumno.findAll()
 
     */
-    def findAll(){
-        return Alumno.list()
+    def findAll() {
+        try {
+            def alumnos = Alumno.list()
+            return alumnos
+        } catch (Exception e) {
+            throw new RuntimeException("Error al recuperar la lista de alumnos: ${e.message}")
+        }
     }
 
     /*  Map params: sirve para representar los datos
@@ -31,10 +39,14 @@ class AlumnoService {
           "name": "Juan",
           "age": 20,
           "graduate": true
-        }                                          */
-    def CreateAlumno(Map params){
-        Alumno alumno = new Alumno(params) // -> crea un nuevo objeto con los valores mapeados
-        return alumno.save(flush: true) // -> el flush sirve para que la operación se vea en la base de datos
+        }
+                                                  */
+    def createAlumno(Map params) {
+        Alumno alumno = new Alumno(params)
+        if (!alumno.save(flush: true)) {
+            throw new RuntimeException("Error al crear el alumno: ${alumno.errors}")
+        }
+        return alumno
     }
 
 
@@ -48,20 +60,16 @@ class AlumnoService {
     }
 
 
-    def updateAlumno(Integer id){
+    def updateAlumno(Integer id, Map params){
         Alumno alumno = findById(id)
-
-        try {
-            alumno.setName(alumno.getName())
-            alumno.setLastName(alumno.getLastName())
-            alumno.setDepartment(alumno.getDepartment())
-            alumno.setDegree(alumno.getDegree())
-            alumno.setAge(alumno.getAge())
-            alumno.setGraduate(alumno.getGraduate())
-
-            return alumno.save(flush: true)
+        if(!alumno){
+            throw new RuntimeException("Alumno no encontrado")
+        }
+        try{
+            alumno.properties = params
+            return alumno.save(flush : true)
         } catch (Exception e){
-            throw new RuntimeException("El reigstro no existe con el id $id $e")
+            throw new RuntimeException("Ha ocurrido un error al actualizar los datos: $e.message")
         }
     }
 
