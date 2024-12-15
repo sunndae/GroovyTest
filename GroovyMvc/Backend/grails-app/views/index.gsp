@@ -41,10 +41,6 @@
         </ul>
     </li>
 
-    <li>
-        <a href="/templates/test.gsp">Test</a>
-    </li>
-
 </content>
 
 <div class="svg" role="presentation">
