@@ -15,28 +15,28 @@ package com.backend
 /* Como crear una clase desde el CMD: grails create-domain-class com.backend.NombreClase */
 class Alumno {
 
-    Integer Id;
-    String Name;
-    String LastName;
-    String Department;
-    String Degree;
-    Integer Age;
-    boolean Graduate;
-
+    Integer id
+    String name
+    String lastName
+    String department
+    String degree
+    Integer age
+    Boolean graduate
+    
     /* son los nombres de las columnas
        que van mapeados a la base de datos
        y con las reglas definidas       */
     static constraints = {
-        Name nullable: false, blank: false
-        LastName nullable: false, blank: false
-        Department nullable: false, blank: false
-        Degree nullable: false
-        Age nullablle: false, min: 18
-        Graduate nullable: true
+        name nullable: false, blank: false
+        lastName nullable: false, blank: false
+        department nullable: false, blank: false
+        degree nullable: false, blank: false
+        age nullable: false, min: 18
+        graduate nullable: false
     }
 
     // el orm va a crear una tabla con este nombre
     static mapping = {
-        tablle: "Alumno"
+        table: "Alumno"
     }
 }
