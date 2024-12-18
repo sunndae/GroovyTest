@@ -1,0 +1,35 @@
+SELECT * FROM public.alumno
+ORDER BY id ASC SELECT MAX(id) FROM public.alumno;
+
+
+CREATE SEQUENCE public.alumno_id_seq
+	INCREMENT 1
+	START 1
+	MINVALUE 1 
+	OWNED BY public.alumno.id;
+
+
+ALTER TABLE public.alumno
+ALTER COLUMN id SET DEFAULT nextval('public.alumno_id_seq');
+
+SELECT setval('public.alumno_id_seq', (SELECT MAX(id) FROM public.alumno));
+
+Select pg_get_serial_sequence('public.alumno', 'id');
+
+
+
+CREATE SEQUENCE public.alumno_id_seq;
+
+ALTER TABLE public.alumno
+ALTER COLUMN id SET DEFAULT nextval('public.alumno_id_seq');
+
+SELECT setval('public.alumno_id_seq', (SELECT MAX(id) FROM public.alumno), true);
+
+
+ALTER SEQUENCE public.alumno_id_seq OWNED BY public.alumno.id;
+ALTER TABLE public.alumno
+ALTER COLUMN id SET DEFAULT nextval('public.alumno_id_seq');
+
+SELECT setval('public.alumno_id_seq', (SELECT MAX(id) FROM public.alumno), true);
+
+SELECT pg_get_serial_sequence('public.alumno', 'id');

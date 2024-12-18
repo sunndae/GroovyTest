@@ -17,7 +17,7 @@ class AlumnoController {
 
     // Página principal (Index)
     def index() {
-        render(view: "index") // Renderiza la vista "index.gsp"
+        render(view: "MantenedorAlumno") // Renderiza la vista "index.gsp"
     }
 
     // Mostrar todos los alumnos
