@@ -1,0 +1,19 @@
+INSERT INTO public.alumno (department, age, degree, graduate, name, last_name)
+VALUES 
+('Electrónica y Telecomunicaciones', 21, 'Ingeniería en Telecomunicaciones', false, 'Pedro', 'Martínez'),
+('Informática', 22, 'Ingeniería en Informática', false, 'Laura', 'Gómez'),
+('Electrónica y Informática', 23, 'Ingeniería Electrónica', false, 'Carlos', 'Díaz'),
+('Industrial', 24, 'Ingeniería Industrial', false, 'María', 'López'),
+('Civil', 25, 'Ingeniería Civil', false, 'Ana', 'Ruiz'),
+('Mecánica', 26, 'Ingeniería Mecánica', false, 'Luis', 'Pérez'),
+('Química', 27, 'Ingeniería Química', false, 'Sofía', 'Hernández'),
+('Eléctrica', 28, 'Ingeniería Eléctrica', false, 'Andrés', 'Torres'),
+('Informática', 29, 'Ingeniería en Software', false, 'Natalia', 'Gutiérrez'),
+('Electrónica', 30, 'Ingeniería Electrónica', false, 'Daniel', 'Ramírez'),
+('Industrial', 21, 'Ingeniería Industrial', false, 'Valeria', 'Jiménez'),
+('Mecánica', 22, 'Ingeniería Mecánica', false, 'Hugo', 'Castro'),
+('Civil', 23, 'Ingeniería Civil', false, 'Luisa', 'Ortega'),
+('Química', 24, 'Ingeniería Química', false, 'Clara', 'Núñez'),
+('Informática', 25, 'Ingeniería en Informática', false, 'David', 'Vargas');
+
+SELECT * FROM public.alumno;

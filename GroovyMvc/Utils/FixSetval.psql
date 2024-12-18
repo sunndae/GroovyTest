@@ -1,0 +1,13 @@
+ALTER TABLE public.alumno ALTER COLUMN version DROP NOT NULL;
+
+
+INSERT INTO public.alumno 
+	    (department, age, degree, graduate, name, last_name)
+VALUES ('Informatica', 23, 'Ingeniería en Informatica', false, 'Fernando', 'Cruces');
+
+SELECT setval('public.alumno_id_seq', (SELECT MAX(id) FROM public.alumno), true);
+
+INSERT INTO public.alumno (department, age, degree, graduate, name, last_name)
+VALUES ('Redes', 22, 'Ingeniería en Informatica', true, 'Ana', 'Martínez');
+
+SELECT * FROM public.alumno;

@@ -10,7 +10,9 @@
 <head>
     <title>Admin Groovy</title>
 </head>
-
+    <div class ="container mt-4">
+        <h1>Lista de alumnos de la UTFSM</h1>
+    </div>
 <body>
 
 </body>
