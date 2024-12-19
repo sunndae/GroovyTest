@@ -49,8 +49,6 @@ class AlumnoService {
         return alumno
     }
 
-
-
     def deleteAlumnoById(Integer id){
         Alumno alumno = findById(id)
         if(!alumno){
@@ -68,10 +66,20 @@ class AlumnoService {
         try{
             alumno.properties = params
             return alumno.save(flush : true)
-        } catch (Exception e){
+        } catch (Exception e) {
             throw new RuntimeException("Ha ocurrido un error al actualizar los datos: $e.message")
         }
     }
+
+    def getDegree() {
+        def degrees = Alumno.get(degree)
+        return degrees
+
+    }
+
+
+
+
 
 }
 

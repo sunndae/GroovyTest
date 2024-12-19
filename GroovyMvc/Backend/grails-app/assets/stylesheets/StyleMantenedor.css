@@ -1,0 +1,48 @@
+
+.header{
+    color: white;
+}
+
+.header2{
+    text-align: center;
+    color: white;
+}
+
+
+.container.mt-4{
+    text-align: center;
+}
+
+.mb-3{
+    margin-bottom: 20px;
+}
+
+.background{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/wave-line-background-free-video.jpg);
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px);
+    z-index: -10;
+
+}
+
+.table {
+    margin: 0 auto;
+    color: white;
+    font-size: 20px;
+    width: auto;
+}
+
+.form-inline .input-group {
+    margin-right: 5px; /* Reduce el espacio horizontal entre los campos */
+    margin-bottom: 5px; /* Reduce el espacio vertical entre los campos */
+}
+
+.form-inline .buttons {
+    margin-top: 10px; /* Ajusta el espacio superior del botón */
+}

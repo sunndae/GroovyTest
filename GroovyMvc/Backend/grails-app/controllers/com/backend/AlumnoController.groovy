@@ -1,8 +1,5 @@
 package com.backend
 
-import grails.web.Controller
-
-
 /*
     El controller sera el que maneje
     las peticiones HTTP y las respuestas.
@@ -17,14 +14,16 @@ class AlumnoController {
 
     // Página principal (Index)
     def index() {
-        render(view: "MantenedorAlumno") // Renderiza la vista "index.gsp"
+        render(view: "MantenedorAlumno") // Renderiza la vista "MantenedorAlumno.gsp"
     }
+
+
 
     // Mostrar todos los alumnos
     def findAll() {
         try {
             def listaAlumnos = alumnoService.findAll()
-            render(view: "list", model: [alumnos: listaAlumnos]) // -> renderiza la vista list.gsp y pasa todos los alumnos para mostrar sus atributos
+            render(view: "MantenedorAlumno", model: [alumnos: listaAlumnos]) // -> renderiza la vista list.gsp y pasa todos los alumnos para mostrar sus atributos
         } catch (Exception e) {
             flash.message = "Error al obtener la lista de alumnos: ${e.message}" // ->  envia mensajes temporales entre el controller y la vista
             redirect(action: "index")
@@ -35,27 +34,23 @@ class AlumnoController {
     def findById(Integer id) {
         try {
             def alumno = alumnoService.findById(id)
-            render(view: "show", model: [alumno: alumno]) // -> renderiza una vista show.gsp y pasa un solo objeto a la vista y esta muestra los atributos del alumno
+            render(view: "MantenedorAlumno", model: [alumno: alumno]) // -> renderiza una vista show.gsp y pasa un solo objeto a la vista y esta muestra los atributos del alumno
         } catch (Exception e) {
             flash.message = "El alumno no existe: ${e.message}"
             redirect(action: "findAll") // -> redirecciona al metodo findAll declarado en el service
         }
     }
 
-    // Formulario para crear un alumno
-    def createForm() {
-        render(view: "create")
-    }
-
-    // Guardar un alumno
+    // crear un alumno
     def createAlumno() {
+        println "Parámetros recibidos: ${params}"
         try {
             alumnoService.createAlumno(params)
             flash.message = "Alumno creado exitosamente"
             redirect(action: "findAll")
         } catch (Exception e) {
             flash.message = "Error al crear el alumno: ${e.message}"
-            render(view: "create")
+            render(view: "MantenedorAlumno")
         }
     }
 
@@ -63,7 +58,7 @@ class AlumnoController {
     def editForm(Integer id) {
         try {
             def alumno = alumnoService.findById(id)
-            render(view: "edit", model: [alumno: alumno])
+            render(view: "EditarAlumno", model: [alumno: alumno])
         } catch (Exception e) {
             flash.message = "El alumno no existe: ${e.message}"
             redirect(action: "findAll")
@@ -92,6 +87,11 @@ class AlumnoController {
             flash.message = "Error al eliminar el alumno: ${e.message}"
             redirect(action: "findAll")
         }
+    }
+
+    def comboboxForm() {
+        def degrees = alumnoService.getDegree()
+        render(view: "MantenedorAlumno", model: [degrees: degrees])
     }
 
 

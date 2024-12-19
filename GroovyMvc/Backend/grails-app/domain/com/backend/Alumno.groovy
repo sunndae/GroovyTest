@@ -42,5 +42,12 @@ class Alumno {
 
         // el orm de grails va a generar una secuencia para manejar los IDs
         id generator: 'sequence', params: [sequence: 'public.alumno_id_seq']
+
+        id column : 'id'
+        name column : 'name'
+        lastName column : 'last_name'
+        department column : 'department'
+        degree column : 'degree'
+        age column : 'age'
     }
 }
