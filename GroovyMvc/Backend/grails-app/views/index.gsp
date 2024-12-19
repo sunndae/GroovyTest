@@ -68,6 +68,11 @@
                         <li class="controller">
                             <g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link>
                         </li>
+
+                        <li class="dropdown-item">
+                            <a href="${createLink(uri: '/alumno/mantenedorAlumno')}">Mantenedor de Alumnos</a>
+                        </li>
+
                     </g:each>
                 </ul>
             </div>

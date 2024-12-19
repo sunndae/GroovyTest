@@ -16,6 +16,11 @@ class UrlMappings {
 
         // http://localhost:8080/alumno
         group "/alumno", {
+
+            "/mantenedorAlumno"(controller: "alumno", action: "index")
+
+            "/alumno/mantenedorAlumno"(controller: "alumno", action: "createForm")
+
             "/findAll"(controller: "alumno", action: "findAll", method: "GET")
             // GET /alumno/findAll - Lista todos los alumnos
 
@@ -30,6 +35,9 @@ class UrlMappings {
 
             "/delete/$id"(controller: "alumno", action: "deleteAlumnoById", method: "DELETE")
             // DELETE /alumno/delete/1 - Elimina un alumno por ID
+
+            "/editForm/$id"(controller: "alumno", action: "editForm", method: "GET")
+            // formulario para editar alumno
         }
 
         // Rutas dinámicas
