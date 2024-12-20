@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'StyleMantenedor.css')}"/>
+    <script src="/assets/javascripts/methods.js"></script>
 
 </head>
     <div class ="container mt-4">
@@ -71,6 +72,7 @@
             </table>
         </div>
     </div>
+
 
 
 

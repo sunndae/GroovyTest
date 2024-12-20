@@ -36,7 +36,7 @@ class UrlMappings {
             "/delete/$id"(controller: "alumno", action: "deleteAlumnoById", method: "DELETE")
             // DELETE /alumno/delete/1 - Elimina un alumno por ID
 
-            "/editForm/$id"(controller: "alumno", action: "editForm", method: "GET")
+            "/editForm/$id"(controller: "alumno", action: "editForm", method: "PUT")
             // formulario para editar alumno
         }
 
