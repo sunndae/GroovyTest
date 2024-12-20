@@ -26,6 +26,7 @@ class AlumnoService {
     def findAll() {
         try {
             def alumnos = Alumno.list()
+            println "alumnos en la bdd $alumnos"
             return alumnos
         } catch (Exception e) {
             throw new RuntimeException("Error al recuperar la lista de alumnos: ${e.message}")
@@ -58,6 +59,7 @@ class AlumnoService {
     }
 
 
+    @Transactional
     def updateAlumno(Integer id, Map params){
         Alumno alumno = findById(id)
         if(!alumno){
@@ -65,8 +67,29 @@ class AlumnoService {
         }
         try{
             alumno.properties = params
-            return alumno.save(flush : true)
+            //alumno.properties = params.findAll { key, value -> alumno.hasProperty(key) && value }
+
+            println "parametros recibidos del controller: ${alumno.properties}"
+            
+            
+            // Validar los datos recibidos antes de guardar
+            if (!alumno.validate()) {
+                println "Errores de validación: ${alumno.errors.allErrors}"
+                throw new RuntimeException("Errores de validación: ${alumno.errors.allErrors}")
+            }
+
+            
+            alumno.markDirty() // Marca el objeto como modificado
+            if(!alumno.save(flush: true)){
+            println "Errores de validación: ${alumno.errors.allErrors}"
+                throw new RuntimeException("Error al actualizar los datos del alumno: ${alumno.errors}")
+            }
+
+            println "los datos se actualizaron: ${alumno.properties}"
+            return alumno
+
         } catch (Exception e) {
+            println("error en el service")
             throw new RuntimeException("Ha ocurrido un error al actualizar los datos: $e.message")
         }
     }

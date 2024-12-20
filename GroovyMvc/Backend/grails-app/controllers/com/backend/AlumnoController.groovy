@@ -57,6 +57,7 @@ class AlumnoController {
     // Formulario para actualizar un alumno
     def editForm(Integer id) {
         try {
+            session.alumnoId = id
             def alumno = alumnoService.findById(id)
             render(view: "EditarAlumno", model: [alumno: alumno])
         } catch (Exception e) {
@@ -66,13 +67,16 @@ class AlumnoController {
     }
 
     // Actualizar un alumno
-    def updateAlumno(Integer id) {
+    def updateAlumno() {
+        def id = session.alumnoId
         try {
             alumnoService.updateAlumno(id, params)
+            println("los datos se cambiaron, datos ${params}")
             flash.message = "Alumno actualizado correctamente"
             redirect(action: "findAll")
         } catch (Exception e) {
             flash.message = "Error al actualizar el alumno: ${e.message}"
+            println("no se han hecho los cambios")
             redirect(action: "editForm", params: [id: id])
         }
     }

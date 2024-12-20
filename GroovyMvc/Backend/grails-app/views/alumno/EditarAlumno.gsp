@@ -10,8 +10,8 @@
 
 
 <div class = "container">
-    <g:form controller="alumno" action="updateAlumno" method="POST" class = 'parametros'>
-        <input type="hidden" name="id" value="${alumno.id}" />
+    <g:form controller="alumno" action="updateAlumno" method="PUT" class = 'parametros'>
+        <g:hiddenField name="_method" value="PUT" />
 
         <label for="name">Nombre:</label>
         <g:textField name="name" value="${alumno.name}" class="form-control" />

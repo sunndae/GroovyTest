@@ -38,7 +38,7 @@ class Alumno {
     // el orm va a crear una tabla con este nombre
     static mapping = {
         table: "alumno"
-        version: false
+        version: true
 
         // el orm de grails va a generar una secuencia para manejar los IDs
         id generator: 'sequence', params: [sequence: 'public.alumno_id_seq']
