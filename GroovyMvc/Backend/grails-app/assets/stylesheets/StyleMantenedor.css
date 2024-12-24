@@ -11,9 +11,9 @@
     top: 0;
     left: 0;
     height: 100vh;
-    width: 80px;
+    width: 90px;
     background-color: #12171e;
-    padding: 0.4rem 0.8rem;
+    padding: 0.6rem 1rem; /* => eso sirve para crear un espacio alredor del contenido*/
     transition: all 0.5s ease; 
 }
 
@@ -199,21 +199,6 @@
     margin-bottom: 20px;
 }
 
-/*
-.background{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url(../images/wave-line-background-free-video.jpg);
-    background-size: cover;
-    background-position: center;
-    filter: blur(8px);
-    z-index: -10;
-
-} 
-*/
 
 .table {
     margin: 0 auto;
