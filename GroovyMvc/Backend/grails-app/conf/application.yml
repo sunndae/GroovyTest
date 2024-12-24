@@ -11,14 +11,14 @@ dataSource:
   password: '1234'
   jmxExport: true
   dbCreate: update
-  url: jdbc:postgresql://localhost:5432/PostgreDB
+  url: jdbc:postgresql://localhost:5434/PostgreDB
   dialect: org.hibernate.dialect.PostgreSQLDialect
 
 environments:
   development:
     dataSource:
       dbCreate: update
-      url: jdbc:postgresql://localhost:5432/PostgreDB
+      url: jdbc:postgresql://localhost:5434/PostgreDB
 
 
 hibernate:
