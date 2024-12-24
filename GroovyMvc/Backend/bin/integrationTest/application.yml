@@ -1,0 +1,68 @@
+info:
+  app:
+    name: '@info.app.name@'
+    version: '@info.app.version@'
+    grailsVersion: '@info.app.grailsVersion@'
+
+dataSource:
+  pooled: true
+  driverClassName: org.postgresql.Driver
+  username: postgres
+  password: '1234'
+  jmxExport: true
+  dbCreate: update
+  url: jdbc:postgresql://localhost:5432/PostgreDB
+  dialect: org.hibernate.dialect.PostgreSQLDialect
+
+environments:
+  development:
+    dataSource:
+      dbCreate: update
+      url: jdbc:postgresql://localhost:5432/PostgreDB
+
+
+hibernate:
+  cache:
+    queries: false
+    use_second_level_cache: false
+    use_query_cache: false
+    show_sql: true
+    format_sql: true
+
+grails:
+  profile: web
+  codegen:
+    defaultPackage: com.backend
+
+  server:
+    port: 8080
+  mime:
+    disable:
+      accept:
+        header:
+          userAgents:
+            - Gecko
+            - WebKit
+            - Presto
+            - Trident
+    types:
+      all: '*/*'
+      html:
+        - text/html
+        - application/xhtml+xml
+      xml:
+        - text/xml
+        - application/xml
+      json:
+        - application/json
+        - text/json
+      js: text/javascript
+  views:
+    gsp:
+      encoding: UTF-8
+      htmlcodec: xml
+      codecs:
+        expression: html
+        scriptlet: html
+        taglib: none
+        staticparts: none
