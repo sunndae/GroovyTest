@@ -1,0 +1,24 @@
+CREATE TABLE notas(
+	id SERIAL PRIMARY KEY,
+	tipo_nota VARCHAR(100),
+	valor_nota INTEGER,
+	fecha_evaluacion DATE
+);
+
+ALTER TABLE notas
+ADD COLUMN ponderacion float;
+
+
+CREATE TABLE alumno_ramo (
+
+	id SERIAL PRIMARY KEY,
+	id_alumno INTEGER REFERENCES alumno (id),
+	id_ramo INTEGER REFERENCES ramo(id),
+	semestre VARCHAR(20),
+	estado_alumno VARCHAR(50)
+);
+
+ALTER TABLE notas
+ADD COLUMN id_alumno_ramo INTEGER REFERENCES alumno_ramo(id);
+
+SELECT * FROM notas;
