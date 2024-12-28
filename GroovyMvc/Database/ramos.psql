@@ -1,0 +1,38 @@
+select * from ramo;
+
+INSERT INTO ramo (id, version, name, profesor_id, aprobation_grade, department_id) VALUES 
+
+-- Ramos comunes 
+(1, 1, 'Matemática I', 2, 55, 5), 
+(2, 1, 'Física General', 3, 55, 5), 
+(3, 1, 'Introducción a la Programación', 1, 55, 1),
+(4, 1, 'Inglés Técnico I', 15, 55, 4),  
+
+-- Ramos específicos Ingeniería/Ing. Civil Informática 
+(5, 1, 'Estructura de Datos', 3, 55, 1), 
+(6, 1, 'Bases de Datos', 4, 55, 1),
+(7, 1, 'Arquitectura de Computadores', 5, 55, 1), 
+(8, 1, 'Sistemas Operativos', 6, 55, 1),
+(9, 1, 'Ingeniería de Software', 7, 55, 1), 
+(10, 1, 'Redes de Computadores', 8, 55, 1), 
+(11, 1, 'Programación Avanzada', 9, 55, 1), 
+(12, 1, 'Algoritmos y Complejidad', 10, 55, 1), 
+
+-- Ramos específicos Técnico en Ciencia de Datos 
+(13, 1, 'Introducción a la Ciencia de Datos', 11, 55, 1), 
+(14, 1, 'Estadística para Datos', 12, 55, 5), 
+(15, 1, 'Machine Learning', 13, 55, 1), 
+(16, 1, 'Visualización de Datos', 14, 55, 1),  
+
+-- Ramos específicos Técnico en Redes 
+(17, 1, 'Administración de Redes', 15, 55, 1), 
+(18, 1, 'Seguridad Informática', 1, 55, 1), 
+(19, 1, 'Protocolos de Red', 2, 55, 1),
+(20, 1, 'Sistemas Distribuidos', 3, 55, 1), 
+
+-- Ramos específicos Técnico en Electrónica 
+(21, 1, 'Circuitos Electrónicos', 8, 55, 2), 
+(22, 1, 'Electrónica Digital', 9, 55, 2), 
+(23, 1, 'Microcontroladores', 10, 55, 2), 
+(24, 1, 'Instrumentación Industrial', 11, 55, 2);
+

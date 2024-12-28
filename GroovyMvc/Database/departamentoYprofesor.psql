@@ -1,0 +1,47 @@
+-- Departamentos
+INSERT INTO departamento (id,version, name, phone_number) VALUES
+(1,1,'Departamento de Electronica e Informática', 322654321),
+(2,1,'Departamento de Electricidad', 322654327),
+(3,1,'Departamento de Industrias', 322654328),
+(4,1,'Departamento de Inglés', 322654329),
+(5,1,'Departamento de Ciencias', 322654330),
+(6,1,'Departamento de Electrotecnia e Informatica', 322654331);
+
+INSERT INTO profesor (id,version, name, academic_degree, heads_department, last_name, department_id) VALUES
+
+-- Departamento de Electronica e Informática (id: 1)
+(1, 1, 'Juan', 'Doctor en Ingeniería Informática', true, 'González', 1),
+(2, 1, 'Felipe', 'Doctor en Inteligencia Artificial', false, 'Núñez', 1),
+(3, 1, 'José', 'Ingeniero en Informática', false, 'Arellano', 1),
+(4, 1, 'Alonso', 'Ingeniero Civil en Telecomunicaciones', false, 'Díaz', 1),
+(5, 1, 'Patricia', 'Magíster en Ciencias de la Computación', false, 'Morales', 1),
+(6, 1, 'Roberto', 'Ingeniero Civil Electrónico', false, 'Vega', 1),
+(7, 1, 'Carolina', 'Doctora en Sistemas Computacionales', false, 'Muñoz', 1),
+
+-- Departamento de Electricidad (id: 2)
+(8, 1, 'Miguel','Ingeniero Civil Eléctrico', true, 'Soto', 2),
+(9, 1, 'Cristina', 'Magíster en Sistemas Eléctricos', false, 'Rojas', 2),
+(10, 1, 'Francisco', 'Doctor en Ingeniería Eléctrica', false, 'Castro', 2),
+(11, 1, 'Paula',  'Ingeniera en Electricidad', false, 'Herrera', 2),
+
+-- Departamento de Industrias (id: 3)
+(12, 1, 'Andrés',  'Ingeniero Civil Industrial', true, 'Pizarro', 3),
+(13, 1, 'Valentina', 'Magíster en Industrias', false, 'Pérez', 3),
+(14, 1, 'Jorge', 'Doctor en Gestión Industrial', false, 'Miranda', 3),
+
+-- Departamento de Inglés (id: 4)
+(15, 1, 'Ricardo', 'Doctor en Lingüística Aplicada', true, 'García', 4),
+(16, 1, 'Isabel',  'Profesora de Inglés', false, 'Torres', 4),
+(17, 1, 'Daniel',  'Magíster en Enseñanza del Inglés', false, 'López', 4),
+
+-- Departamento de Ciencias (id: 5)
+(18, 1, 'María',  'Magíster en Matemáticas', true, 'Rodríguez', 5),
+(19, 1, 'Carlos', 'Doctor en Física', false, 'Martínez', 5),
+(20, 1, 'Ana',  'Magíster en Química', false, 'López', 5),
+(21, 1, 'Pedro',  'Doctor en Ciencias', false, 'Sánchez', 5),
+(22, 1, 'Carmen',  'Magíster en Ciencias', false, 'Díaz', 5),
+
+-- Departamento de Electrotecnia e Informática (id: 6)
+(23, 1, 'Laura',  'Magíster en Ingeniería', true, 'Fernández', 6),
+(24, 1, 'Diego',  'Ingeniero en Computación', false, 'Rivas', 6),
+(25, 1, 'Camila',  'Doctora en Informática', false, 'Ortiz', 6);
