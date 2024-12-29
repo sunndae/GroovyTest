@@ -1,0 +1,14 @@
+SELECT * FROM public.alumno_ramo
+ORDER BY id ASC 
+
+SELECT * FROM alumno
+SELECT * FROM ramo
+SELECT * FROM departamento
+SELECT * FROM profesor
+
+-- Query para un metodo del service de Alumno_ramo
+SELECT a.name, a.last_name, ar.semestre, r.name, ar.promediofinal, ar.estado_alumno
+From alumno AS a
+JOIN alumno_ramo AS ar ON ar.id_alumno = a.id
+JOIN ramo AS r on ar.id_ramo = r.id
+WHERE r.name = 'Ingeniería de Software'
