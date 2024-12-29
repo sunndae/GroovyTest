@@ -17,11 +17,13 @@ class Alumno {
 
     String name
     String lastName
-    String department
     String degree
     Integer age
     Boolean graduate
-    //Long version
+    
+    static hasMany = [ramos: AlumnoRamo] // un alumno puede inscribir varios ramos
+    static belongsTo = [departamento: Departamento] // un alumno pertenece a un departamento
+
 
     /* son los nombres de las columnas
        que van mapeados a la base de datos
@@ -29,7 +31,6 @@ class Alumno {
     static constraints = {
         name nullable: false, blank: false
         lastName nullable: false, blank: false
-        department nullable: false, blank: false
         degree nullable: false, blank: false
         age nullable: false, min: 18
         graduate nullable: false
@@ -46,8 +47,8 @@ class Alumno {
         id column : 'id'
         name column : 'name'
         lastName column : 'last_name'
-        department column : 'department'
         degree column : 'degree'
         age column : 'age'
+        departamento column: 'department_id'
     }
 }

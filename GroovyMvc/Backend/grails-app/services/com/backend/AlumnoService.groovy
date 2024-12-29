@@ -57,9 +57,8 @@ class AlumnoService {
         }
         return alumno.delete(flush : true)
     }
-  
+    
 
-    @Transactional
     def updateAlumno(Integer id, Map params){
         Alumno alumno = findById(id)
         if(!alumno){
@@ -68,13 +67,6 @@ class AlumnoService {
         try{
             alumno.properties = params
 
-            // Validar los datos recibidos antes de guardar
-            if (!alumno.validate()) {
-                throw new RuntimeException("Errores de validación: ${alumno.errors.allErrors}")
-            }
-
-            
-            alumno.markDirty() // => marca el objeto Alumno como modificado para el GORM 
             if(!alumno.save(flush: true)){
                 throw new RuntimeException("Error al actualizar los datos del alumno: ${alumno.errors}")
             }
@@ -92,6 +84,5 @@ class AlumnoService {
 
     }
 
- 
 }
 

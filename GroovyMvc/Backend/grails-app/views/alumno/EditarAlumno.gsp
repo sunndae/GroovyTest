@@ -21,10 +21,7 @@
 
         <label for="degree">Carrera:</label>
         <g:textField name="degree" value="${alumno.degree}" class="form-control" />
-
-        <label for="department">Departamento:</label>
-        <g:textField name="department" value="${alumno.department}" class="form-control" />
-
+        
         <label for="age">Edad:</label>
         <g:textField name="age" value="${alumno.age}" class="form-control" />
 
