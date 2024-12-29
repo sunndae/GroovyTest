@@ -1,8 +1,8 @@
 package com.backend
 
-import groovy.transform.CompileStatic
+import grails.gorm.transactions.Transactional
 
-@CompileStatic
+@Transactional
 class ProfesorService {
 
     def doSomething() {

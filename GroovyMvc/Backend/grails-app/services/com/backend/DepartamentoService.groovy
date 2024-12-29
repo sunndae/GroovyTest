@@ -1,10 +1,7 @@
 package com.backend
 
-import groovy.transform.CompileStatic
-
 import grails.gorm.transactions.Transactional
 
-@CompileStatic
 @Transactional
 class DepartamentoService {
 
@@ -25,6 +22,7 @@ class DepartamentoService {
             return departamento
         }catch(Exception e){
             throw new RuntimeException("Error al obtener los departamentos de la base de datos" + e)
+        }
     }
 
     def createDepartamento(Map params){
@@ -34,8 +32,9 @@ class DepartamentoService {
             return nuevoDepartamento
         }catch(Exception e){
             throw new RuntimeException("Ha ocurrido un error al crear un departamento" + e)
+        }
     }
-
+    
     def deleteDepartamentoById(Integer id){
         Departamento departamento = Departamento.get(id)
         if(!Departamento){
@@ -44,9 +43,9 @@ class DepartamentoService {
             return departamento.delete(flush:true)}
     }
 
-    @Transactional
+    //@Transactional
     def updateDepartamento(Integer id, Map params){
-        Departamento departamentoActualizar = Departamento.get(id)
+        Departamento departamentoActualizar = findById(id)
         if(!departamentoActualizar){
             throw new RuntimeException("El departamento no existe en la base de datos")
         }
@@ -57,8 +56,23 @@ class DepartamentoService {
                 throw new RuntimeException("Ha ocurrido un error al actualizar el departamento")
             }
             return departamentoActualizar
+
         }catch(Exception e){
             throw new RuntimeException("Ha ocurrido un error al actualizar el departamento" + e)
         }
     }
+
+    /*
+    def asignarDirector(Integer id){
+
+        def candidato = Profesor.findByid(id)
+
+        if(candidato.get(academicDegree).contains("PhD") || candidato.get(academicDegree).contains("Doctor")){
+           candidato.set(headsDepartment) = true
+           return candidato
+        }else{
+            throw new RuntimeException("El candidato a director no tiene el grado academico para ser el director del departamento")
+        }
+    }
+    */
 }
