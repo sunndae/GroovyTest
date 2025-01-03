@@ -14,22 +14,38 @@ class AlumnoRamoService {
         }
     }
 
+
+    // aqui hacemos una consulta SQL nativa
+    // por que la tabla notas no existe en las clases de dominio
     def calcularPromedio(Integer idAlumno){
-
-        String query = """
-            SELECT
-            ROUND(SUM(
+        try{
+            String SQL_Query = """
+                SELECT 
+                    ROUND(SUM(
                 n.valor_nota * n.ponderacion))
-            FROM notas as n
-            WHERE n.id_alumno_ramo = :idAlumno       
-        """ 
+                FROM notas as n
+                WHERE n.id_alumno_ramo = :idAlumno
+             """
 
-        def promedio = AlumnoRamo.executeQuery(query, [idAlumno: idAlumno])
+            // aqui obtenemos la instancia de ejecucion
+            // de hibernate para la query que queremos ejecutar
+            def session = AlumnoRamo.withSession { it }
 
-        return promedio ?: 0.0
+            // asi se ejecuta una consulta SQL nativa
+            // en grails cuando no esta la clase de dominio
+            def query = session.createSQLQuery(SQL_Query)
+            query.setParameter("idAlumno", idAlumno)
 
+            // de esta manera se obtiene el resultado
+            def promedio = query.uniqueResult()
+
+            return promedio ?: 0.0
+        }catch(Exception e){
+            throw new RuntimeException ("Ha ocurrido un error al calcular el promedio del estudiante" + e)
+        }
     }
-    
+
+
     def listarAlumnosPorRamo(String nombreRamo){
 
         try{
