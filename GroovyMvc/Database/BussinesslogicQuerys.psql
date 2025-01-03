@@ -12,3 +12,5 @@ From alumno AS a
 JOIN alumno_ramo AS ar ON ar.id_alumno = a.id
 JOIN ramo AS r on ar.id_ramo = r.id
 WHERE r.name = 'Ingeniería de Software'
+
+Select * from notas; 
