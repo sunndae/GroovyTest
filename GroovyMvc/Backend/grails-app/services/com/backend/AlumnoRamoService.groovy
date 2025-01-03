@@ -45,7 +45,7 @@ class AlumnoRamoService {
         }
     }
 
-
+    // Este es un ejemplo de una query pero usando HQL/GORM
     def listarAlumnosPorRamo(String nombreRamo){
 
         try{
